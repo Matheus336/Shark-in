@@ -1,5 +1,7 @@
+import { Button } from "@/components/ui/button";
 import sinddeximg from "../../assets/sinddex.png";
 import { useState } from "react";
+import {Input} from "@/components/ui/input.tsx";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -14,51 +16,55 @@ export function Login() {
 
       <div className="flex flex-col gap-4 mt-6">
         <div className="flex flex-row gap-4 items-center">
-          <p className="text-lg">E-mail: </p>
-          <input
-            type="text"
-            placeholder="E-mail"
-            className="border border-gray-400 rounded-md p-2 text-lg w-80"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+            <p className="text-lg">E-mail: </p>
+            <Input
+                type="email"
+                placeholder="Email"
+                className="border border-gray-400 rounded-md p-2 text-lg w-80"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+            />
         </div>
 
         <div className="flex flex-row gap-4 items-center">
           <p className="text-lg">Senha: </p>
-          <input
-            type="password"
-            placeholder="Senha"
-            className="border border-gray-400 rounded-md p-2 text-lg w-80"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-          />
+            <Input
+                type="password"
+                placeholder="Senha"
+                className="border border-gray-400 rounded-md p-2 text-lg w-80"
+                onChange={(e) => setSenha(e.target.value)}
+                value={senha}
+            />
         </div>
       </div>
 
       <div className="flex flex-row gap-6 mt-6">
-        <button
-          className="bg-blue-500 text-white hover:bg-blue-600 text-lg rounded-md border border-blue-700 bg"
-          onClick={() => alert(email + "\n" + senha)}
+        <Button
+            variant="default"
+            size={"lg"}
+            className="bg-sky-600 hover:bg-sky-700"
+            onClick={() => alert(email + "\n" + senha)}
         >
-          <span className="m-4">Sign-in</span>
-        </button>
+          Sign-in
+        </Button>
 
-        <button
-          className="bg-gray-300 text-black hover:bg-gray-400 text-lg rounded-md border border-gray-500"
-          onClick={() => alert("Olá!")}
-        >
-          <span className="m-4">Inscreva-se</span>
-        </button>
+          <Button
+              variant="outline"
+              size={"lg"}
+              onClick={() => alert("Olá!")}
+          >
+              Inscreva-se
+          </Button>
       </div>
       <p className="text-lg">ou </p>
       <div className="flex flex-row gap-6 ">
-        <button
-          className="bg-red-500 text-white hover:bg-red-600 text-lg rounded-md border border-red-700"
-          onClick={() => alert("Olá!")}
-        >
-          <span className="m-4 text-white">Logar com Google</span>
-        </button>
+          <Button
+              variant="destructive"
+              size={"lg"}
+              onClick={() => alert("Olá!")}
+          >
+              Logar com Google
+          </Button>
       </div>
     </div>
   );
