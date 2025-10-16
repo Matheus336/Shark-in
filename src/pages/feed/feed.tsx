@@ -5,7 +5,15 @@ import {ptBR} from "date-fns/locale/pt-BR"
 import ThumbUp from '@mui/icons-material/ThumbUpOutlined'
 import RocketLaunch from '@mui/icons-material/RocketLaunchOutlined'
 import AttachMoney from '@mui/icons-material/AttachMoneyOutlined'
-import { IconButton } from '@mui/material'
+import {Input} from "@/components/ui/input.tsx";
+import {Link} from "@tanstack/react-router";
+import logo from "@/assets/shark-in.png";
+import {IconButton} from "@mui/material";
+import Chat from '@mui/icons-material/ChatOutlined';
+import {Textarea} from "@/components/ui/textarea"
+import {Button} from "@/components/ui/button.tsx";
+import Notifications from '@mui/icons-material/NotificationsOutlined';
+import Account from '@mui/icons-material/AccountCircleOutlined';
 
 interface Post {
     id: string
@@ -133,15 +141,15 @@ const PostItem = ({post}: { post: Post }) => {
             </CardContent>
             <CardFooter className="flex flex-row items-center space-x-4">
                 <IconButton color="inherit" onClick={() => alert('Curtir!')}>
-                    <ThumbUp />
+                    <ThumbUp/>
                 </IconButton>
 
                 <IconButton color="inherit" onClick={() => alert('Impulsionar!')}>
-                    <RocketLaunch />
+                    <RocketLaunch/>
                 </IconButton>
 
                 <IconButton color="inherit" onClick={() => alert('Investir!')}>
-                    <AttachMoney />
+                    <AttachMoney/>
                 </IconButton>
             </CardFooter>
         </Card>
@@ -150,13 +158,40 @@ const PostItem = ({post}: { post: Post }) => {
 
 export const Feed = () => {
     return (
-        <div
-            className="flex flex-col items-center justify-center min-h-screen gap-4 bg-linear-to-r from-white to-gray-100">
-            <div className="max-w-3xl mx-auto mt-6 px-4">
-                {mockPosts.map((post) => (
-                    <PostItem key={post.id} post={post}/>
-                ))}
+        <div>
+            <div>
+                <nav
+                    className="flex flex-1 items-center justify-between px-6 py-4 bg-[#580848] text-white shadow-md pl-15 pr-15">
+                    <Link to="/feed">
+                        <img src={logo} alt="Logo do Shark-in" className="w-10 h-10"/>
+                    </Link>
+                    <Input
+                        type="text"
+                        placeholder="Buscar..."
+                        className="border border-white rounded-3xl p-2 w-1/2 text-lg bg-white text-black"
+                    />
+                    <Link to="/feed">
+                        <Account/>
+                    </Link>
+                </nav>
+            </div>
+            <div
+                className="flex flex-col items-center justify-center min-h-screen gap-4 bg-gradient-to-r from-white to-gray-100">
+                <div className="flex flex-col items-center gap-4 max-w-3xl w-full px-4 mt-6">
+                    <Textarea
+                        placeholder="O que você está pensando?"
+                        className="w-full border border-gray-400 rounded-md text-lg min-h-[100px]"
+                    />
+                    <Button className="w-full bg-sky-600 hover:bg-sky-700 text-white px-6 py-2">
+                        Postar
+                    </Button>
+                </div>
+                <div className="max-w-3xl mx-auto mt-6 px-4 w-full">
+                    {mockPosts.map((post) => (
+                        <PostItem key={post.id} post={post}/>
+                    ))}
+                </div>
             </div>
         </div>
-    )
+    );
 }
