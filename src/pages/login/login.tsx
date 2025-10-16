@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Link } from "@tanstack/react-router";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ export function Login() {
   console.log(senha);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-linear-to-r from-white to-gray-300">
+    <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-linear-to-r from-white to-gray-100">
       <div>
         <Card>
           <CardHeader>
@@ -54,14 +55,16 @@ export function Login() {
           </CardContent>
           <CardFooter className="flex flex-col items-center">
             <div className="flex flex-row gap-6 mt-6">
-              <Button
-                variant="default"
-                size={"lg"}
-                className="bg-sky-600 hover:bg-sky-700"
-                onClick={() => alert(email + "\n" + senha)}
-              >
-                Sign-in
-              </Button>
+              <Link to={"/feed"}>
+                <Button
+                    variant="default"
+                    size={"lg"}
+                    className="bg-sky-600 hover:bg-sky-700"
+                >
+                  Logar
+                </Button>
+              </Link>
+
 
               <Button
                 variant="outline"
