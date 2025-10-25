@@ -81,7 +81,7 @@ export default function ChatInterface({ selectedUser }: ChatInterfaceProps) {
             className="h-full w-full object-cover rounded-full"
           />
         </Avatar>
-        <div className="flex flex-col justify-center overflow-hidden">
+        <div className="flex flex-col justify-center">
           <h2 className="font-semibold text-gray-800 truncate">
             {selectedUserData?.name || "Emily Thompson"}
           </h2>
