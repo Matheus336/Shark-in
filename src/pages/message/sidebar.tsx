@@ -4,112 +4,11 @@ import { Avatar } from "../../components/ui/avatar";
 import { Input } from "../../components/ui/input";
 import { Badge } from "../../components/ui/badge";
 import {
-  Sidebar,
-  SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
-  SidebarHeader,
 } from "../../components/ui/sidebar";
-
-const users = [
-  {
-    id: "1",
-    name: "Emma Thompson",
-    avatar: "https://i.pravatar.cc/150?img=13",
-    status: "online",
-    unread: 3,
-    lastMessage: "Hey, how's it going?",
-  },
-  {
-    id: "2",
-    name: "James Wilson",
-    avatar: "https://i.pravatar.cc/150?img=14",
-    status: "online",
-    unread: 0,
-    lastMessage: "Can we discuss the project?",
-  },
-  {
-    id: "3",
-    name: "Sophia Martinez",
-    avatar: "https://i.pravatar.cc/150?img=15",
-    status: "offline",
-    unread: 0,
-    lastMessage: "Thanks for your help!",
-  },
-  {
-    id: "4",
-    name: "Liam Johnson",
-    avatar: "https://i.pravatar.cc/150?img=16",
-    status: "away",
-    unread: 1,
-    lastMessage: "I'll send you the files later",
-  },
-  {
-    id: "5",
-    name: "Olivia Davis",
-    avatar: "https://i.pravatar.cc/150?img=17",
-    status: "online",
-    unread: 0,
-    lastMessage: "Let's meet tomorrow",
-  },
-  {
-    id: "6",
-    name: "Noah Brown",
-    avatar: "https://i.pravatar.cc/150?img=18",
-    status: "online",
-    unread: 2,
-    lastMessage: "I sent the invoice.",
-  },
-  {
-    id: "7",
-    name: "Ava Garcia",
-    avatar: "https://i.pravatar.cc/150?img=19",
-    status: "offline",
-    unread: 0,
-    lastMessage: "Talk soon!",
-  },
-  {
-    id: "8",
-    name: "Ethan Lee",
-    avatar: "https://i.pravatar.cc/150?img=20",
-    status: "online",
-    unread: 5,
-    lastMessage: "Can you review the PR?",
-  },
-  {
-    id: "9",
-    name: "Mia Patel",
-    avatar: "https://i.pravatar.cc/150?img=21",
-    status: "offline",
-    unread: 0,
-    lastMessage: "Thanks again!",
-  },
-  {
-    id: "10",
-    name: "Lucas Müller",
-    avatar: "https://i.pravatar.cc/150?img=22",
-    status: "away",
-    unread: 1,
-    lastMessage: "On my way.",
-  },
-  {
-    id: "11",
-    name: "Isabella Rossi",
-    avatar: "https://i.pravatar.cc/150?img=23",
-    status: "online",
-    unread: 0,
-    lastMessage: "Great work on the demo!",
-  },
-  {
-    id: "12",
-    name: "Benjamin Nogse",
-    avatar: "https://i.pravatar.cc/150?img=24",
-    status: "offline",
-    unread: 4,
-    lastMessage: "Please check the doc I uploaded.",
-  },
-];
+import users from "./users";
 
 type UserSidebarProps = {
   onSelectUser: (userId: string) => void;
@@ -140,7 +39,7 @@ export default function UserSidebar({
   };
 
   return (
-    <div className="w-full max-w-md md:max-w-sm lg:max-w-xs bg-background flex flex-col">
+    <div className="w-full max-w-md md:max-w-sm lg:max-w-xs bg-background flex flex-col max-h-[90vh] rounded-lg shadow-md">
       <div className="p-4 border-b">
         <div className="flex items-center gap-2 mb-4">
           <Users className="h-5 w-5" />

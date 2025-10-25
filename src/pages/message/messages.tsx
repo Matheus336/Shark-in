@@ -6,19 +6,22 @@ import { HeaderProfile } from "../feed/header.tsx";
 
 export default function Messages() {
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
+
   return (
-    <main className="flex min-h-screen bg-gray-50">
+    <main className="flex flex-col h-screen bg-gray-50 overflow-hidden">
       <HeaderProfile />
       <SidebarProvider>
-        <div className="w-64 border-r border-gray-200 bg-white">
-          <UserSidebar
-            onSelectUser={setSelectedUser}
-            selectedUser={selectedUser}
-          />
-        </div>
-        <div className="flex-1 p-4 flex justify-center">
-          <div className="w-full max-w-6xl h-full shadow-xl rounded-xl overflow-hidden border border-gray-200 bg-white">
-            <ChatInterface selectedUser={selectedUser} />
+        <div className="flex flex-1 flex-col md:flex-row overflow-hidden">
+          <div className="w-full md:w-64 border-r border-gray-200 bg-white overflow-hidden">
+            <UserSidebar
+              onSelectUser={setSelectedUser}
+              selectedUser={selectedUser}
+            />
+          </div>
+          <div className="flex-1 p-4 flex justify-center items-center min-w-0 overflow-hidden max-h-[90%]">
+            <div className="w-full h-full max-w-[90%] shadow-xl rounded-xl overflow-hidden border border-gray-200 bg-white">
+              <ChatInterface selectedUser={selectedUser} />
+            </div>
           </div>
         </div>
       </SidebarProvider>
