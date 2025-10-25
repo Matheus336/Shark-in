@@ -6,7 +6,7 @@ import { Link } from "@tanstack/react-router";
 export const HeaderProfile = () => {
   return (
     <div>
-      <nav className="flex flex-1 items-center justify-between px-6 py-4 bg-[#580848] text-white shadow-md pl-15 pr-15">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#580848] text-white shadow-md">
         <Link to="/feed">
           <img src={logo} alt="Logo do Shark-in" className="w-10 h-10" />
         </Link>

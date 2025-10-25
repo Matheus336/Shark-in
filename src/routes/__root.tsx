@@ -1,9 +1,18 @@
-import { createRootRoute, Outlet } from '@tanstack/react-router'
+import { HeaderProfile } from "@/pages/feed/header";
+import { createRootRoute, Outlet, useLocation } from "@tanstack/react-router";
 
-const RootLayout = () => (
-  <>
-    <Outlet />
-  </>
-)
+const RootLayout = () => {
+  const location = useLocation();
+  const isLoginRoute = location.pathname === "/";
 
-export const Route = createRootRoute({ component: RootLayout })
+  return (
+    <div className="flex flex-col bg-background">
+      {isLoginRoute ? null : <HeaderProfile />}
+      <main className={`flex-1 ${isLoginRoute ? "" : "mt-20"}`}>
+        <Outlet />
+      </main>
+    </div>
+  );
+};
+
+export const Route = createRootRoute({ component: RootLayout });
