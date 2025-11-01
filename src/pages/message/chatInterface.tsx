@@ -72,8 +72,9 @@ export default function ChatInterface({ selectedUser }: ChatInterfaceProps) {
   };
 
   return (
-    <div className="flex flex-col flex-1 bg-background w-full max-w-full overflow-hidden">
-      <div className="flex items-center p-4 border-b">
+    <div className="flex flex-col flex-1 h-full w-full max-w-full bg-background overflow-hidden">
+      {/* Cabeçalho */}
+      <div className="flex items-center p-4 border-b bg-white">
         <Avatar className="h-14 w-14 mr-3 flex-shrink-0">
           <img
             src={selectedUserData?.avatar || "https://i.pravatar.cc/150?img=25"}
@@ -91,7 +92,8 @@ export default function ChatInterface({ selectedUser }: ChatInterfaceProps) {
         </div>
       </div>
 
-      <div className="flex flex-col flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-white to-gray-100">
+      {/* Corpo com scroll interno */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-white to-gray-100">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -135,7 +137,8 @@ export default function ChatInterface({ selectedUser }: ChatInterfaceProps) {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="p-4 bg-white shadow-inner flex items-center gap-2">
+      {/* Rodapé fixo */}
+      <div className="shrink-0 p-4 bg-white shadow-inner flex items-center gap-2">
         <Button variant="outline" size="icon" className="rounded-full">
           <Paperclip className="h-5 w-5 text-gray-500" />
         </Button>
