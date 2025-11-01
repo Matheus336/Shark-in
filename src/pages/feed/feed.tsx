@@ -8,7 +8,7 @@ export const Feed = () => {
   return (
     <div>
       <HeaderProfile />
-      <div className="flex flex-col items-center justify-center min-h-screen gap-4 bg-gradient-to-r from-white to-gray-100">
+      <div className="flex flex-col items-center justify-center gap-4 bg-gradient-to-r from-white to-gray-100">
         <div className="flex flex-col items-center gap-4 max-w-3xl w-full px-4 mt-6">
           <Textarea
             placeholder="O que você está pensando?"

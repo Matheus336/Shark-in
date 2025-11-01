@@ -72,7 +72,7 @@ export default function ChatInterface({ selectedUser }: ChatInterfaceProps) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-background w-full max-w-full">
+    <div className="flex flex-col flex-1 bg-background w-full max-w-full overflow-hidden">
       <div className="flex items-center p-4 border-b">
         <Avatar className="h-14 w-14 mr-3 flex-shrink-0">
           <img
@@ -91,7 +91,7 @@ export default function ChatInterface({ selectedUser }: ChatInterfaceProps) {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-white to-gray-100">
+      <div className="flex flex-col flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-white to-gray-100">
         {messages.map((message) => (
           <div
             key={message.id}

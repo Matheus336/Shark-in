@@ -117,4 +117,18 @@
   body {
     @apply bg-background text-foreground;
   }
-} 
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
